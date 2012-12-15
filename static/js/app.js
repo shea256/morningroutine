@@ -12,6 +12,9 @@ require([
 	"/static/js/controllers.js"
 	],
 	function() {
-		$(function(){ AppRouter.start() });
+		$(function(){
+			window.appRouter = new AppRouter();
+			appRouter.start()
+		});
 	}
 );

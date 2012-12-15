@@ -2,7 +2,7 @@
 *              Controllers
 *****************************************/
 
-var AppRouter = new (Backbone.Router.extend({
+var AppRouter = Backbone.Router.extend({
 	routes: {
 		'': 'home',
 		'routine/edit': 'editRoutine',
@@ -34,4 +34,4 @@ var AppRouter = new (Backbone.Router.extend({
 	start: function() {
 		Backbone.history.start({pushState: true});
 	}
-}));
+});
