@@ -121,38 +121,6 @@ def get_item(id):
 	else:
 		return Response(json.dumps({ 'error': "method not allowed" }), status=405, mimetype='application/json')
 
-"""@app.route("/api/routines")
-def get_routines():
-	with open('routines.json', 'r') as f:
-		data = json.loads(f.read())
-	routines = []
-	for id, routine in data.items():
-		routine['id'] = id
-		routines.append(routine)
-	return Response(json.dumps(routines), status=200, mimetype='application/json')
-
-@app.route("/api/routine/<routine_id>", methods=['GET', 'PUT', 'DELETE'])
-def get_routine(routine_id):
-	with open('routines.json', 'r') as f:
-		data = json.loads(f.read())
-	if request.method == 'GET':
-		if routine_id in data:
-			routine = data[routine_id]
-		else:
-			return Response(json.dumps({ 'error': "routine doesn't exist" }), status=404, mimetype='application/json')
-		return Response(json.dumps(routine), status=200, mimetype='application/json')
-	elif request.method == 'PUT':
-		print request.values
-		# data[routine_id] = 
-		with open('routines.json', 'w') as f:
-			f.write(json.dumps(data))
-		return Response(json.dumps({ "success": 1 }), status=200, mimetype='application/json')
-	elif request.method == 'DELETE':
-		del data[routine_id]
-		with open('routines.json', 'w') as f:
-			f.write(json.dumps(data))
-		return Response(json.dumps({ "success": 1 }), status=200, mimetype='application/json')"""
-
 #----------------------------------------
 # controllers
 #----------------------------------------
