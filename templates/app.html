@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block templates %}
+<script type="text/javascript">
+	window.user_id = "0";
+</script>
+
+<script type="text/template" id="listed-item-template">
+	<td class="span2">
+		<span class="item-viewer">
+			<%- type %>
+		</span>
+		<span class="item-editor">
+			<select class="typeInput span1point5">
+				<option value="quote">Quote</option>
+				<option value="image">Image</option>
+				<option value="textfield">Textfield</option>
+			</select>
+		</span>
+	</td>
+	<td class="span7">
+		<span class="item-viewer span7">
+			<%- content %>
+		</span>
+		<span class="item-editor">
+			<textarea class="contentInput span7" type="text"><%- content %></textarea>
+		</span>
+	</td>
+	<td class="span1">
+		<button class="save btn btn-primary">save</button>
+	</td>
+	<td class="span1">
+		<button class="delete btn">delete</button>
+	</td>
+</script>
+
+<script type="text/template" id="home-template">
+	<div class="container center">
+		<h1>Good Morning!</h1>
+		<h3>Ready to start your morning routine?</h3>
+		<p>
+			<a href="/routine" class="startRoutine btn btn-large btn-primary">Start Routine</a>
+		</p>
+		<p>
+			<a href="/routine/edit" class="edit-routine btn">Edit Routine</a>
+		</p>
+		<!--<p><a href="/routine/edit" class="edit-routine btn btn-large btn-primary">Create your Routine</a></p>-->
+	</div>
+</script>
+
+<script type="text/template" id="editor-template">
+	<h2>add to your routine</h2>
+	<div>
+		<label class="control-label">Type</label>
+		<div class="controls">
+			<select class="typeInput span2" id="itemType">
+				<option value="quote">Quote</option>
+				<option value="image">Image</option>
+				<option value="textfield">Textfield</option>
+			</select>
+		</div>
+		<label class="control-label">Content</label>
+		<textarea class="contentInput span8" type="text"></textarea>
+		<div>
+			<button class="createItem btn btn-primary">add item</button>
+		</div>
+	</div>
+	<hr>
+	<h2>current routine</h2>
+	<table class="table table-hover" id="item-table">
+		<thead>
+			<tr>
+				<th class="span2">Type</th>
+				<th class="span8">Content</th>
+				<th class="span1"></th>
+				<th class="span1"></th>
+			</tr>
+		</thead>
+		<tbody id="editor-tbody">
+		</tbody>
+	</table>
+</script>
+
+<script type="text/template" id="routine-template">
+	<h3 class="routine-header">my morning routine</h3>
+	<button class="nextItem btn">Continue</button>
+	<div class="routine-body">
+	<% if (type == 'quote') { %>
+		<div class="item-quote mb-wrap mb-style-1">
+			<div class="mb-thumb"></div>
+			<blockquote>
+				<p><%- content %></p>
+			</blockquote>
+			<div class="mb-attribution">
+				<p class="mb-author"><%- author %></p>
+			</div>
+		</div>
+	<% } else if (type == 'image') { %>
+		<div class="item-image">
+			<img src="http://lorempixel.com/400/400/nature/">
+		</div>
+	<% } else if (type == 'textfield') { %>
+		<div class="writing-prompt">write 50 words about anything</div>
+		<div class="item-textfield">
+			<textarea rows="5" class="writing-area"></textarea>
+		</div>
+	<% } %>
+	</div>
+	
+</script>
+{% endblock %}
