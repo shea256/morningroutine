@@ -24,14 +24,35 @@
 		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+	<!--<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/underscore.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/backbone.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/models.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>-->
+	
+	<!-- Application core (Order matters) -->
+	<!--<script src="{{ url_for('static', filename='js2/application.js') }}"></script>-->
+	<!--<script>
+		jQuery(function($) {
+			console.log(window.app);
+			var Item = app.module("item");
+			var Home = app.module("home");
+			var router = new Home.Router();
+			router.start();
+		});
+	</script>-->
+	
+	<!-- Modules (Order does not matter) -->
+	<!--<script src="{{ url_for('static', filename='js2/item.js') }}"></script>
+	<script src="{{ url_for('static', filename='js2/canvas.js') }}"></script>-->
+
+	<script data-main="{{ url_for('static', filename='js/main.js') }}" src="{{ url_for('static', filename='js/libs/require.min.js') }}"></script>
+
+	<!--<script data-main="{{ url_for('static', filename='js2/application_ready.js') }}" src="{{ url_for('static', filename='js/require.min.js') }}"></script>-->
+
+	<!--<script src="{{ url_for('static', filename='js/models.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/views.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/controllers.js') }}"></script>
-	<script data-main="{{ url_for('static', filename='js/app.js') }}" src="{{ url_for('static', filename='js/require.min.js') }}"></script>
+	<script data-main="{{ url_for('static', filename='js/app.js') }}" src="{{ url_for('static', filename='js/require.min.js') }}"></script>-->
   </head>
 
   <body>
@@ -59,7 +80,7 @@
 	</div>
 
 	<div class="container page">
-		<div class="content" id="app">
+		<div class="content" id="content">
 		</div>
 
 		<hr>
@@ -71,5 +92,6 @@
 
 	{% block templates %}
 	{% endblock %}
+
   </body>
 </html>
